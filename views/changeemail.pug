@@ -1,0 +1,12 @@
+html
+    head
+        title Change email
+    body
+        if(message)
+        h4 #{message}
+        form(action = "/user/changeEmail" method = "POST")
+            input(name = "oldEmail" type = "text" required placeholder = "Old Email")
+            input(name = "newEmail" type = "text" required placeholder = "New Email")
+            button(type = "Submit") Change
+        div
+        a(href='/user/myprofile') Back to my profile

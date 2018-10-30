@@ -1,0 +1,10 @@
+html
+    head
+        title New acitvation email
+    body
+        if(message)
+        h4 #{message}
+        form(action = "/user/resend" method = "POST")
+            input(name = "username" type = "text" required placeholder = "Username")
+            input(name = "email" type = "text" required placeholder = "email")
+            button(type = "Submit") Send new email

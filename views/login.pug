@@ -1,0 +1,14 @@
+html
+    head
+        title Login
+    body
+        if(message)
+        h4 #{message}
+        form(action = "/user/login" method = "POST")
+            input(name = "username" type = "text" required placeholder = "Username")
+            input(name = "password" type = "password" required placeholder = "Password")
+            button(type = "Submit") Log in
+        div
+         a(href='/user/resendEmail') I dont get email
+         br
+         a(href='/user/resetPassword') I forgot password

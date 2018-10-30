@@ -1,0 +1,27 @@
+html
+    head
+        title New account
+    body
+        if(message)
+            h4 #{message}
+        form(action = "/user/new", method = "POST")
+            div
+                label(for = "username") Username: 
+                input(name = "username" type = "text" required placeholder = "Username")
+            br
+            div
+                label(for = "password") Password: 
+                input(name = "password" type = "password" required placeholder = "Password")
+            br
+            div
+                label(for = "password1") Repeat password: 
+                input(name = "password1" type = "password" required placeholder = "Password")
+            br
+            div
+                label(for = "email") Email: 
+                input(name = "email" type = "text" required placeholder = "example@example.com")
+            br
+            div
+            br
+            div
+                button(type = "submit") Create new account

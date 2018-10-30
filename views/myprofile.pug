@@ -1,0 +1,22 @@
+html
+    head
+        title My profile
+    body
+        if(message)
+        h4 #{message}
+        if(urls)
+            p There are your lists. Clik name to go to edit mode.
+            each url,index in urls
+                a(href='/user/Lists/' + urls[index]) #{Listname[index]}  
+                a(href='/user/Lists/delete/' + urls[index]) Delete 
+                br
+        form(action = "/user/newList" method = "POST")
+            input(name = "name" type = "text" required placeholder = "name")
+            button(type = "Submit") Create new list
+        a(href='/user/changePassword') Change Password
+        br
+        a(href='/user/changeEmail') Change email
+        br
+        a(href='/user/delete') Delete account
+        br
+        a(href='/user/logout') Loagout

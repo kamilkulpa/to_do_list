@@ -1,0 +1,25 @@
+html
+    head
+        title #{title}
+    body
+        if(message)
+        h4 #{message}
+        if(items)
+            p Items on your list:
+            each item,index in items
+                p #{item} 
+                a(href=url+"/delete/" + index)
+                    button(type="button") Delete
+                if(index!=0)
+                    a(href=url+"/posUp/"+ index)
+                        button(type="button") Up
+                if(index<items.length-1)
+                    a(href=url+"/posDown/" + index)
+                        button(type="button") Down
+                br
+        form(action = "/user/List/newItem" method = "POST")
+            input(name = "text" type = "text" required placeholder = "text")
+            button(type = "Submit") Create new item on list
+        a(href='/user/myprofile') Back
+        br
+        a(href='/user/logout') Loagout

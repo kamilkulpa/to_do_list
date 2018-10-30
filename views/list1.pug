@@ -1,0 +1,11 @@
+html
+    head
+        title #{title}
+    body
+        if(message)
+        h4 #{message}
+        if(items)
+            p Items on your list:
+            each item,index in items
+                p #{item} 
+                br

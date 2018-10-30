@@ -1,23 +1,34 @@
 var express = require('express');
 var session = require('express-session')
-var MongoStore = require('connect-mongo')(session);
+exports.MongoStore = require('connect-mongo')(session);
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/tododb');
+mongoose.connect('mongodb://localhost:27017/tododb', {useNewUrlParser: true});
 
 var usersSchema = mongoose.Schema({
     Username: String,
     Password: String,
+    email: String,
     ver_code: String,
-    verified: Boolean
+    paswordResetExpires: Date,
+    isVerified: {type: Boolean,default: false}
+
 });
-var user =mongoose.model('Users',usersSchema);
+var User =mongoose.model('Users',usersSchema);
+
+var tokenSchema = mongoose.Schema({
+    _userId: {type: mongoose.Schema.Types.ObjectId, required: true, ref: 'User'},
+    token: {type: String, required: true},
+    craetedAt: {type:Date, required: true, default: Date.now, expires: 43200}
+});
+var Token = mongoose.model('Tokens',tokenSchema)
 
 var listsSchema = mongoose.Schema({
     UserID: mongoose.Schema.Types.ObjectId,
+    ListName: String,
     ListURL: String
 });
-var list = mongoose.model('List', listsSchema);
+var List = mongoose.model('List', listsSchema);
 
 var list_itemsSchema = mongoose.Schema({
     ListID: mongoose.Schema.Types.ObjectId,
@@ -25,13 +36,14 @@ var list_itemsSchema = mongoose.Schema({
     ListItemDone: Number,
     ListItemPosition: Number
 });
-var listItem = mongoose.model('ListItem',list_itemsSchema);
+var ListItem = mongoose.model('ListItem',list_itemsSchema);
 
 
 exports.mongoose;
 exports.usersSchema;
-exports.user;
+exports.User = User;
 exports.listsSchema;
-exports.list;
+exports.List = List;
 exports.list_itemsSchema;
-exports.listItem;
+exports.ListItem =ListItem;
+exports.Token = Token
