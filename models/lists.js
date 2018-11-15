@@ -7,12 +7,9 @@ var app = express();
 exports.createList = function (req, res) {
 
     var url = crypto.randomBytes(10).toString('hex');
-    console.log(url)
     var sameURL = true;
     while (sameURL === true) {
-        console.log(sameURL)
         url = crypto.randomBytes(10).toString('hex');
-        console.log("eloooo")
         db.List.findOne({
             ListURL: url
         }, (err, response) => {
@@ -22,11 +19,14 @@ exports.createList = function (req, res) {
                     message: "Databese error",
                     type: "error"
                 });
-            } else console.log('jojojo')
+            }
             if (err) {
-                console.log('heheheheh')
-                console.log(url)
-            } else console.log('hujjjjj')
+                console.log(err)
+                res.render('show_message', {
+                    message: "Databese error",
+                    type: "error"
+                });
+            }
         })
     }
     var list = new db.List({
@@ -47,8 +47,6 @@ exports.createList = function (req, res) {
 
 exports.createList1 = function (req, res) {
     var url = crypto.randomBytes(10).toString('hex');
-    console.log(url)
-    var sameURL = true;
     db.List.findOne({
         ListURL: url
     }, (err, response) => {
@@ -135,7 +133,7 @@ exports.renderList = async function (req, res) {
             name = list.ListName;
             return name
         }
-        if(!name){
+        if (!name) {
             res.render('show_message', {
                 message: "Wrong adress. List don't exist",
                 type: "error"
@@ -179,7 +177,7 @@ exports.deleteList = async function (id, req, res) {
         res.redirect('/user/myprofile')
         return 1
     } catch (e) {
-        console.log("LOLOLOLOLOL3 " + e)
+        console.log(e)
         return 0
     }
 }

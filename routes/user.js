@@ -46,7 +46,6 @@ router.post('/login', (req, res) => {
 });
 
 router.get('/myprofile', user.checkSignIn, (req, res) => {
-    console.log("elo" + req.session.user._id)
     user.renderingProfile(req, res)
 })
 router.get('/changePassword', user.checkSignIn, (req, res) => {
@@ -76,12 +75,10 @@ router.get('/Lists/delete/:id', user.checkSignIn, (req, res) => {
 })
 
 router.get('/Lists/:id', user.checkSignIn, (req, res) => {
-    console.log("alo" + req.session.user._id)
     list.renderListUser(req, res);
 })
 
 router.post('/List/newItem', user.checkSignIn, (req, res) => {
-    console.log("lol" + req.params.id)
     item.createItem(req, res)
 });
 
@@ -120,7 +117,6 @@ router.get('/logout', (req, res) => {
 })
 
 router.post('/newList', user.checkSignIn, (req, res) => {
-    console.log("elo")
     list.createList1(req, res)
 })
 

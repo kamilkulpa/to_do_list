@@ -67,12 +67,11 @@ exports.posUp = async function (req, res) {
             }, {
                 ListItemPosition: temp.ListItemPosition + 1
             }).exec();
-            console.log("Zrobione");
             res.redirect('/user/Lists/' + req.params.id);
         }
         return 1
     } catch (e) {
-        console.log("LOLOLOLOLOL " + e)
+        console.log(e)
         res.redirect('/user/Lists/' + req.params.id)
         return 0
     }
@@ -110,7 +109,7 @@ exports.posDown = async function (req, res) {
         }
         return 1
     } catch (e) {
-        console.log("LOLOLOLOLOL " + e)
+        console.log(e)
         res.redirect('/user/Lists/' + req.session.list)
         return 0
     }
@@ -125,7 +124,6 @@ exports.deleteItem = async function (req, res) {
         if (list != null) {
             temp = parseInt(req.params.id2);
             itemsOnList = await db.ListItem.count().exec();
-            console.log("hahahahahasdfijsd")
             await db.ListItem.findOneAndRemove({
                 ListItemPosition: temp,
                 ListID: list._id
@@ -143,7 +141,7 @@ exports.deleteItem = async function (req, res) {
             res.redirect('/user/Lists/' + req.session.list)
         }
     } catch (e) {
-        console.log("LOLOLOLOLOL " + e)
+        console.log(e)
         res.redirect('/user/Lists/' + req.session.list)
         return 0
     }
@@ -162,7 +160,7 @@ exports.deleteAllItems = async function (param) {
         }
         return 1;
     } catch (e) {
-        console.log("LOLOLOLOLOL2 " + e)
+        console.log(e)
         return 0
     }
 }

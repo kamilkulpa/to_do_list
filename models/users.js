@@ -190,7 +190,7 @@ exports.confirmationPost = function (req, res, next) {
     }, (err, token) => {
         if (!token) return res.status(400).send({
             type: 'not_verified',
-            msg: "We ar unabele to find a token"
+            msg: "We are unabele to find a token"
         });
 
         db.User.findOne({
@@ -327,7 +327,6 @@ exports.renderingProfile = function (req, res) {
     db.List.find({
         UserID: req.session.user._id
     }, (err, response) => {
-        //console.log(response);
         if (!response) {
             console.log("niema");
             return res.render('myprofile')
@@ -352,15 +351,12 @@ exports.deleteUser = async function (req, res) {
         listCount = await db.List.count({
             UserID: req.session.user._id
         });
-        console.log("oooooooooo" + listCount)
         for (var i = 0; i < listCount; i++) {
             await db.List.findOne({
                 UserID: req.session.user._id
             }, async (err, response) => {
-                console.log("uuuuuu" + response)
                 await list.deleteList(response.ListURL, req, res)
             })
-
         }
         await db.User.findByIdAndDelete({
             _id: req.session.user._id
@@ -368,7 +364,7 @@ exports.deleteUser = async function (req, res) {
         res.redirect('/user/login')
         return 1
     } catch (e) {
-        console.log("LOLOLOLOLOL1 " + e)
+        console.log(e)
         return 0
     }
 }
