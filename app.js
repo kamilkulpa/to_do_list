@@ -4,9 +4,6 @@ var cookieParser = require('cookie-parser');
 var multer = require('multer');
 var mongoose = require('mongoose');
 var session = require('express-session')
-var MongoStore = require('connect-mongo')(session);
-var db = require('./config/db')
-var listItem = require('./models/list_items');
 var user = require('./routes/user')
 var list = require('./routes/list')
 var lists = require('./models/lists');
@@ -20,14 +17,18 @@ app.set('view engine', 'pug');
 app.set('views', './views');
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 app.use(express.static('public'));
 app.use(cookieParser());
-app.use(session({secret: "Your secret key"}));
+app.use(session({
+    secret: "Your secret key"
+}));
 app.use('/user', user)
 app.use('/list', list);
-app.get('',(req, res) =>{
-res.render('index')
+app.get('', (req, res) => {
+    res.render('index')
 })
 
 app.listen(3000)

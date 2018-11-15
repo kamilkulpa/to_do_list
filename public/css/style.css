@@ -1,0 +1,481 @@
+body {
+	background: url(/img/diagmonds.png);
+
+	font-family: 'Titillium Web', sans-serif;
+
+}
+
+p {
+	color: #ffffff;
+	margin: 1px;
+}
+
+button {
+	background-color: rgba(59, 59, 59, 0.904);
+	color: white;
+	padding: 10px 25px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 12px;
+	border: 2px solid black;
+}
+
+button:hover {
+	background-color: rgba(41, 41, 41, 0.904);
+	color: white;
+}
+
+label {
+	min-width: 170px;
+	width: 120px;
+	height: 45px;
+	font-size: 15px;
+	color: #ffffff;
+}
+
+#loginForm {
+	float: left;
+	margin: 1px;
+	width: 100%;
+	position: relative;
+	padding: 5px;
+	color: white;
+}
+
+input {
+	float: top;
+	position: relative;
+	padding: 10px 25px;
+	font-size: 12px;
+	background-color: rgba(59, 59, 59, 0.904);
+	color: white;
+	border: none;
+	border: 2px solid black;
+	margin: 5px;
+	margin-right: 20px;
+	margin-left: 0px;
+}
+
+select {
+
+	width: 100%;
+	padding: 16px 20px;
+	border: none;
+	border-radius: 4px;
+	background-color: #f1f1f1;
+}
+
+a {
+
+	position: relative;
+	margin-top: 20px;
+	min-width: 50px;
+	width: 150px;
+	height: 5px;
+	font-size: 20px;
+	padding: 5px;
+	color: white;
+	text-decoration: none;
+}
+
+a:hover {
+	color: black;
+	background: url(mochaGrunge/mochaGrunge.png);
+	cursor: pointer;
+}
+
+#list {
+	float: left;
+	width: 100%;
+	min-width: 50px;
+	font-size: 20px;
+	padding: 5px;
+	color: white;
+	margin: 1px;
+	text-decoration: none;
+}
+
+.listElements {
+	float: left;
+	position: relative;
+	min-width: 100%;
+	height: auto;
+	font-size: 20px;
+	padding: 5px;
+	color: white;
+	text-decoration: none;
+	border-bottom: dotted 2px black;
+
+}
+
+.elemnts {
+	float: left;
+	min-width: 100px;
+	margin: 10px;
+
+}
+
+.optionsUp {
+	float: right;
+	width: 95px;
+	height: 38px;
+	margin-left: 1px;
+}
+
+.optionsDown {
+	float: right;
+	width: 95px;
+	height: 38px;
+	margin-left: 1px;
+}
+
+.optionsDelete {
+	float: right;
+	width: 95px;
+	height: 38px;
+	margin-left: 1px;
+}
+
+.options {
+	float: right;
+	margin: 10px;
+	margin-left: 0px;
+}
+
+.indexes {
+	float: left;
+	position: relative;
+	min-width: 100%;
+	height: auto;
+	font-size: 20px;
+	color: white;
+	text-decoration: none;
+	float: left;
+	min-width: 20px;
+	margin: 10px;
+	height: auto;
+}
+
+.dots {
+	float: left;
+	min-width: auto;
+	height: 22;
+	margin: 10px;
+	border-bottom: dotted white 2px;
+}
+
+#container {
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+
+}
+
+#logo {
+	position: relative;
+	top: 20px;
+	font-family: 'Karla', sans-serif;
+	color: white;
+	margin-top: 20px;
+	margin-bottom: 10px;
+	margin-left: 300px;
+}
+
+#menu {
+	background: url(diagmonds/diagmonds.png);
+	list-style: none;
+	color: #ffffff;
+	padding: 10px;
+	float: left;
+	border-top: 2px dotted #444444;
+	text-decoration: none;
+}
+
+#menu li a {
+
+	display: block;
+	min-width: 50px;
+	width: 120px;
+	height: 25px;
+	font-size: 18px;
+	padding: 10px;
+
+	color: white;
+	border-bottom: 2px dotted #c50707;
+	text-decoration: none;
+}
+
+#menu li a:hover {
+	color: black;
+	background: url(mochaGrunge/mochaGrunge.png);
+	cursor: pointer;
+}
+
+
+
+#menu_trigger {
+	margin-left: auto;
+	margin-right: auto;
+	float: right;
+	min-width: 50px;
+	width: 500px;
+	padding: 10px;
+	margin-left: 10px;
+	display: none;
+	background: url(images/menu_trigger.png) center center no-repeat;
+	cursor: pointer;
+}
+
+#content {
+
+	float: left;
+	padding: 40px;
+	width: 730px;
+	background: url(mochaGrunge/mochaGrunge.png);
+	min-height: 580px;
+	text-align: justify;
+}
+
+
+}
+
+#ramka {
+	overflow: hidden;
+	width: 1000px;
+	min-height: 580px;
+}
+
+#footer {
+	clear: both;
+	text-align: center;
+	padding: 20px;
+	font-size: 18px;
+
+	color: #ffffff;
+}
+
+.bigtitle {
+	font-size: 32px;
+	font-weight: 900;
+	letter-spacing: 2px;
+}
+
+.option {
+
+	min-width: 50px;
+	width: 140px;
+	height: 25px;
+	font-size: 18px;
+	padding: 10px;
+	margin-left: 10px;
+	border-bottom: 2px dotted #444444;
+
+}
+
+#topbar {
+
+	height: 300px;
+	width: 1000px;
+	color: #ffffff;
+}
+
+.logoArt {
+	width: 730px;
+	height: 150px;
+}
+
+.art {
+	margin-left: auto;
+	margin-right: auto;
+	float: left;
+	margin-top: 9px;
+	height: 250px;
+	width: 297px;
+	padding: 16px;
+	border-left: 2px dotted #444444;
+}
+
+.art:hover {
+	color: black;
+	background: url(mochaGrunge/mochaGrunge.png);
+	cursor: pointer;
+
+}
+
+.awatar {
+	float: left;
+	height: 60px;
+	width: 60px;
+	background-color: yellow;
+	color: black;
+
+}
+
+.arttitle {
+	float: left;
+	height: 60px;
+	width: 207px;
+	padding-left: 15px;
+
+
+}
+
+.menutitle {
+	min-width: 50px;
+	width: 140px;
+	font-size: 22px;
+	letter-spacing: 3px;
+	font-weight: 700;
+	padding: 10px;
+	margin-left: 10px;
+	border-bottom: 2px dotted #444444;
+	text-align: center;
+}
+
+.option:hover {
+	color: black;
+	background: url(mochaGrunge/mochaGrunge.png);
+	cursor: pointer;
+}
+
+
+
+.dottedline {
+	height: 5px;
+	margin-top: 15px;
+	margin-bottom: 20px;
+	border-bottom: 2px dotted #444444;
+}
+
+
+@media (max-width: 1000px) {
+	#menu_trigger {
+		display: none;
+	}
+
+	#container {
+		width: 730px;
+	}
+
+	#logo {
+		width: 730px;
+		margin-left: 180px;
+	}
+
+	.art {
+		width: 207px;
+		height: auto;
+		float: left;
+	}
+
+	.logoArt {
+		width: 469px;
+	}
+
+	#topbar {
+		width: 730px;
+	}
+
+	#content {
+		width: 469px;
+		float: left;
+	}
+
+	#menu {
+		width: 160px;
+		float: left;
+	}
+
+	#footer {
+		width: 730px;
+	}
+
+	.arttitle {
+		width: 130px;
+		height: 80px;
+	}
+}
+
+@media (max-width: 750px) {
+	#menu1 {
+		position: absolute;
+		top: 0;
+		left: auto;
+		right: auto;
+		background: url(diagmonds/diagmonds.png);
+		width: 500px;
+	}
+
+	#menu {
+		position: absolute;
+		top: 10px;
+		list-style: none;
+		background: url(diagmonds/diagmonds.png);
+		width: 100%;
+		display: none;
+	}
+
+	#menu li:first-child {
+		padding-top: 10px;
+	}
+
+	#menu li:last-child {
+		padding-bottom: 10px;
+	}
+
+	#menu li a {
+		display: block;
+		height: auto;
+		width: auto;
+		padding: 8px 0 8px 20px;
+		color: #fff;
+		font-weight: bold;
+		text-decoration: none;
+	}
+
+	#menu li a:hover {
+		color: black;
+		background: url(mochaGrunge/mochaGrunge.png);
+	}
+
+	#menu_trigger {
+		margin-top: 10px;
+		margin-bottom: 10px;
+		display: inline;
+	}
+
+	.menutitle {
+		width: auto;
+	}
+
+	#container {
+		width: 500px;
+	}
+
+	.logoArt {
+		width: 420px;
+	}
+
+	#logo {
+		width: 420px;
+		margin-left: 80px;
+	}
+
+	.art {
+		display: none;
+	}
+
+	#topbar {
+		display: none;
+	}
+
+	#content {
+		width: 420px;
+		float: left;
+	}
+
+	#footer {
+		width: 420px;
+	}
+}

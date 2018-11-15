@@ -1,6 +1,8 @@
 html
    head
       title Person
+      link(rel="stylesheet" href="/css/style.css" type="text/css") 
+      link(href="http://fonts.googleapis.com/css?family=Karla:400,700|Titillium+Web:400,700&subset=latin,latin-ext" rel="stylesheet" type="text/css")
    body
       if(type == "error")
          h3(style = "color:red") #{message}

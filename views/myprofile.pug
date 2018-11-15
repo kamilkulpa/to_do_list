@@ -1,22 +1,33 @@
 html
     head
         title My profile
+        link(rel="stylesheet" href="/css/style.css" type="text/css") 
+        link(href="http://fonts.googleapis.com/css?family=Karla:400,700|Titillium+Web:400,700&subset=latin,latin-ext" rel="stylesheet" type="text/css")
     body
-        if(message)
-        h4 #{message}
-        if(urls)
-            p There are your lists. Clik name to go to edit mode.
-            each url,index in urls
-                a(href='/user/Lists/' + urls[index]) #{Listname[index]}  
-                a(href='/user/Lists/delete/' + urls[index]) Delete 
-                br
-        form(action = "/user/newList" method = "POST")
-            input(name = "name" type = "text" required placeholder = "name")
-            button(type = "Submit") Create new list
-        a(href='/user/changePassword') Change Password
-        br
-        a(href='/user/changeEmail') Change email
-        br
-        a(href='/user/delete') Delete account
-        br
-        a(href='/user/logout') Loagout
+        #container
+            if(message)
+            h4 #{message}
+            if(urls)
+                p There are your lists. Clik name to go to edit mode.
+                #list
+                    each url,index in urls
+                        div(class='listElements')
+                            div(class='indexes')
+                                p #{index+1}.
+                            div(class='elemnts')
+                                a(href='/user/Lists/' + urls[index]) #{Listname[index]}
+                            div(class='dots')
+                            div(class='options')  
+                                a(href='/user/Lists/delete/' + urls[index]) Delete 
+            #loginForm
+                form(action = "/user/newList" method = "POST")
+                    input(name = "name" type = "text" required placeholder = "name")
+
+                    button(type = "Submit") Create new list
+            a(href='/user/changePassword') Change Password
+            br
+            a(href='/user/changeEmail') Change email
+            br
+            a(href='/user/delete') Delete account
+            br
+            a(href='/user/logout') Logout

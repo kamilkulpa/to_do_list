@@ -1,25 +1,36 @@
 html
     head
         title #{title}
+        link(rel="stylesheet" href="/css/style.css" type="text/css") 
+        link(href="http://fonts.googleapis.com/css?family=Karla:400,700|Titillium+Web:400,700&subset=latin,latin-ext" rel="stylesheet" type="text/css")
     body
-        if(message)
-        h4 #{message}
-        if(items)
-            p Items on your list:
-            each item,index in items
-                p #{item} 
-                a(href=url+"/delete/" + index)
-                    button(type="button") Delete
-                if(index!=0)
-                    a(href=url+"/posUp/"+ index)
-                        button(type="button") Up
-                if(index<items.length-1)
-                    a(href=url+"/posDown/" + index)
-                        button(type="button") Down
-                br
-        form(action = "/user/List/newItem" method = "POST")
-            input(name = "text" type = "text" required placeholder = "text")
-            button(type = "Submit") Create new item on list
-        a(href='/user/myprofile') Back
-        br
-        a(href='/user/logout') Loagout
+        #container
+            if(message)
+            h4 #{message}
+            if(items)
+                p Items on your list:
+                #list
+                    each item,index in items
+                        div(class='listElements')
+                            div(class='elemnts')
+                                p #{item} 
+                            div(class='dots')
+                            div(class='options') 
+                                div(class='optionsDelete') 
+                                    a(href=url+"/delete/" + index)
+                                        button(type="button") Delete
+                                div(class='optionsUp') 
+                                    if(index!=0)
+                                        a(href=url+"/posUp/"+ index)
+                                            button(type="button") Up
+                                div(class='optionsDown') 
+                                    if(index<items.length-1)
+                                        a(href=url+"/posDown/" + index)
+                                            button(type="button") Down
+            p Create new  item on list:             
+            form(action = "/user/List/newItem" method = "POST")
+                input(name = "text" type = "text" required placeholder = "text")
+                button(type = "Submit") Create
+            a(href='/user/myprofile') Back
+            br
+            a(href='/user/logout') Loagout
