@@ -7,6 +7,9 @@ var crypto = require('crypto')
 var nodemailer = require('nodemailer')
 var app = express();
 
+require('dotenv').config();
+const email = process.env.email;
+const password = process.env.password;
 app.use(cookieParser());
 app.use(session({
     secret: "Your secret key"
@@ -48,7 +51,7 @@ exports.create = function (req, name, pasword, pasword1, emaill, res) {
                         type: "error"
                     });
                 else
-                    res.redirect('show_message', {
+                    res.render('show_message', {
                         message: "New person added. Verification email was sended",
                         type: "succes"
                     });
@@ -66,12 +69,12 @@ exports.create = function (req, name, pasword, pasword1, emaill, res) {
                 var transporter = nodemailer.createTransport({
                     service: 'gmail',
                     auth: {
-                        user: 'example@gmail.com',
-                        pass: 'password'
+                        user: email,
+                        pass: password
                     }
                 });
                 var mailOptions = {
-                    from: 'example@gmail.com',
+                    from: email,
                     to: user.email,
                     subject: 'Account Verification Token',
                     text: 'Hello,\n\n' + 'Please verify your account by clicking the link: \nhttp:\/\/' + req.headers.host + '\/user\/confirmation\/' + token.token + '.\n'
@@ -247,12 +250,12 @@ exports.resendTokenPost = function (req, res, next) {
             var transporter = nodemailer.createTransport({
                 service: 'gmail',
                 auth: {
-                    user: 'example@gmail.com',
-                    pass: 'password'
+                    user: email,
+                    pass: password
                 }
             });
             var mailOptions = {
-                from: 'account@gmail.com',
+                from: email,
                 to: user.email,
                 subject: 'Account Verification Token',
                 text: 'Hello,\n\n' + 'Please verify your account by clicking the link: \nhttp:\/\/' + req.headers.host + '\/user\/confirmation\/' + token.token + '.\n'
@@ -295,12 +298,12 @@ exports.retrievePassword = function (req, res) {
             var transporter = nodemailer.createTransport({
                 service: 'gmail',
                 auth: {
-                    user: 'account@gmail.com',
-                    pass: 'password'
+                    user: email,
+                    pass: password
                 }
             });
             var mailOptions = {
-                from: 'account@gmail.com',
+                from: email,
                 to: user.email,
                 subject: 'New password',
                 text: 'Hello,\n\n' + 'Your new password is: ' + pass + '.\n'
